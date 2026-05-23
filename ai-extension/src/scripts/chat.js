@@ -556,9 +556,10 @@ class ChatUI {
         // Extract selected generation modes
         const isFeatureChecked = checkboxes.some(box => box.value === 'FEATURE');
         const isPageChecked = checkboxes.some(box => box.value === 'PAGE');
+        const isTestChecked = checkboxes.some(box => box.value === 'TEST');
 
         // Validate that at least one option is selected
-        if (!isFeatureChecked && !isPageChecked) {
+        if (!isFeatureChecked && !isPageChecked && !isTestChecked) {
             console.warn('No generation mode selected. Defaulting to Page Object generation.');
             // Default fallback to page object generation
             if (this.isJavaSelenium(lang, eng)) {
@@ -571,7 +572,7 @@ class ChatUI {
             return promptKeys;
         }
 
-        // Generate appropriate prompt keys based on selections and language/engine combination
+        // Handle Feature and Page combination (regardless of Test selection)
         if (isFeatureChecked && isPageChecked) {
             // Both feature and page selected - generate combined output
             if (this.isJavaSelenium(lang, eng)) {
@@ -596,6 +597,19 @@ class ChatUI {
                 promptKeys.push('SELENIUM_PYTHON_PAGE_ONLY');
             } else if (this.isPlaywrightTypeScript(lang, eng)) {
                 promptKeys.push('PLAYWRIGHT_TS_PAGE_ONLY');
+            } else {
+                this.addUnsupportedLanguageMessage(lang, eng);
+            }
+        }
+
+        // Add test scripts if TEST is checked (can be combined with Feature/Page)
+        if (isTestChecked) {
+            if (this.isJavaSelenium(lang, eng)) {
+                promptKeys.push('SELENIUM_JAVA_TEST_SCRIPTS');
+            } else if (this.isPythonSelenium(lang, eng)) {
+                promptKeys.push('SELENIUM_PYTHON_TEST_SCRIPTS');
+            } else if (this.isPlaywrightTypeScript(lang, eng)) {
+                promptKeys.push('PLAYWRIGHT_TS_TEST_SCRIPTS');
             } else {
                 this.addUnsupportedLanguageMessage(lang, eng);
             }

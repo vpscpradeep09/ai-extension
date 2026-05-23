@@ -444,6 +444,252 @@ export const DEFAULT_PROMPTS = {
 
     Tone:
     - Professional, executable, structured.
+  `,
+
+  /**
+   * Selenium Java Test Scripts (Manual Test Cases)
+   * Maximum 10 test cases covering positive, negative, and edge cases
+   */
+  SELENIUM_JAVA_TEST_SCRIPTS: `
+    Instructions:
+    - Generate ONLY manual test cases in a clear, readable format (NOT automation scripts).
+    - Create a maximum of 10 test cases with the following distribution:
+      * 30% Positive scenarios (valid inputs, happy path)
+      * 40% Negative scenarios (invalid inputs, error handling)
+      * 30% Edge cases (boundary conditions, empty fields, special characters)
+    - Each test case should have: Test Case ID, Title, Preconditions, Steps, Expected Result, and Notes.
+    - Use Gherkin-style format for clarity.
+    - Do NOT include Java code or automation scripts.
+    - Use realistic South India data (names, addresses, phone numbers).
+    - Reference elements from the provided DOM by their ID, class, or xpath.
+
+    Context:
+    DOM:
+    \`\`\`html
+    \${domContent}
+    \`\`\`
+    URL: \${pageUrl}
+
+    Example Output Format:
+    \`\`\`
+    TEST CASE 01 - Successful Login [POSITIVE]
+    Title: User can login with valid credentials
+    Preconditions: Application is open, user is on login page
+    Steps:
+      1. Enter username "rajesh.kumar" in Username field
+      2. Enter password "SecurePass123" in Password field
+      3. Click the Login button
+    Expected Result: User is logged in successfully and redirected to dashboard
+    Notes: Test with valid credentials only
+
+    TEST CASE 02 - Login with Empty Username [NEGATIVE]
+    Title: System shows error when username is empty
+    Preconditions: Application is open, user is on login page
+    Steps:
+      1. Leave Username field empty
+      2. Enter password "SecurePass123" in Password field
+      3. Click the Login button
+    Expected Result: Error message "Username is required" is displayed, user remains on login page
+    Notes: Verify error handling for empty mandatory fields
+
+    TEST CASE 03 - Submit with Empty Fields [EDGE CASE]
+    Title: System validation when both fields are empty
+    Preconditions: Application is open, user is on login page
+    Steps:
+      1. Leave both Username and Password fields empty
+      2. Click the Login button
+    Expected Result: Error message appears for each empty field, user remains on login page
+    Notes: Edge case for batch validation
+    \`\`\`
+
+    Persona:
+    - Audience: QA testers who need manual test cases for testing.
+
+    Output Format:
+    - Plain text format inside a \`\`\`\`\`\` block with clear test case structure.
+    - Each test case should be separated by a blank line.
+
+    Tone:
+    - Clear, structured, actionable.
+    - Focus on test coverage and edge cases.
+  `,
+
+  /**
+   * Selenium Python Test Scripts (Manual Test Cases)
+   * Maximum 10 test cases covering positive, negative, and edge cases
+   */
+  SELENIUM_PYTHON_TEST_SCRIPTS: `
+    Instructions:
+    - Generate ONLY manual test cases in a clear, readable format (NOT automation scripts).
+    - Create a maximum of 10 test cases with the following distribution:
+      * 30% Positive scenarios (valid inputs, happy path)
+      * 40% Negative scenarios (invalid inputs, error handling)
+      * 30% Edge cases (boundary conditions, empty fields, special characters)
+    - Each test case should have: Test Case ID, Title, Preconditions, Steps, Expected Result, and Notes.
+    - Use Gherkin-style format for clarity.
+    - Do NOT include Python code or automation scripts.
+    - Use realistic South India data (names, addresses, phone numbers).
+    - Reference elements from the provided DOM by their ID, class, or xpath.
+
+    Context:
+    DOM:
+    \`\`\`html
+    \${domContent}
+    \`\`\`
+    URL: \${pageUrl}
+
+    Example Output Format:
+    \`\`\`
+    TEST CASE 01 - Successful Registration [POSITIVE]
+    Title: User can register with valid information
+    Preconditions: Application is open, user is on registration page
+    Steps:
+      1. Enter first name "Pradeep" in First Name field
+      2. Enter last name "Kumar" in Last Name field
+      3. Enter email "pradeep.kumar@example.com" in Email field
+      4. Enter password "SecurePass@123" in Password field
+      5. Click the Register button
+    Expected Result: User is registered successfully, confirmation message is displayed
+    Notes: Valid registration flow
+
+    TEST CASE 02 - Register with Invalid Email [NEGATIVE]
+    Title: System rejects invalid email format
+    Preconditions: Application is open, user is on registration page
+    Steps:
+      1. Enter first name "Pradeep"
+      2. Enter last name "Kumar"
+      3. Enter email "invalid-email" in Email field
+      4. Enter password "SecurePass@123"
+      5. Click the Register button
+    Expected Result: Error message "Invalid email format" is displayed, registration is not completed
+    Notes: Email validation test
+
+    TEST CASE 03 - Register with SQL Injection [NEGATIVE]
+    Title: Application handles special characters safely
+    Preconditions: Application is open, user is on registration page
+    Steps:
+      1. Enter first name "Pradeep'; DROP TABLE--"
+      2. Enter last name "Kumar"
+      3. Enter email "test@example.com"
+      4. Enter password "SecurePass@123"
+      5. Click the Register button
+    Expected Result: Data is sanitized and accepted without SQL injection vulnerability
+    Notes: Security edge case
+
+    TEST CASE 04 - Register with Password Too Short [EDGE CASE]
+    Title: Password validation for minimum length
+    Preconditions: Application is open, user is on registration page
+    Steps:
+      1. Fill in valid first name, last name, and email
+      2. Enter password "12345" (less than 8 characters)
+      3. Click the Register button
+    Expected Result: Error "Password must be at least 8 characters" is displayed
+    Notes: Boundary condition for password length
+    \`\`\`
+
+    Persona:
+    - Audience: QA testers who need manual test cases for testing.
+
+    Output Format:
+    - Plain text format inside a \`\`\`\`\`\` block with clear test case structure.
+    - Each test case should be separated by a blank line.
+
+    Tone:
+    - Clear, structured, actionable.
+    - Focus on test coverage and edge cases.
+  `,
+
+  /**
+   * Playwright TypeScript Test Scripts (Manual Test Cases)
+   * Maximum 10 test cases covering positive, negative, and edge cases
+   */
+  PLAYWRIGHT_TS_TEST_SCRIPTS: `
+    Instructions:
+    - Generate ONLY manual test cases in a clear, readable format (NOT automation scripts).
+    - Create a maximum of 10 test cases with the following distribution:
+      * 30% Positive scenarios (valid inputs, happy path)
+      * 40% Negative scenarios (invalid inputs, error handling)
+      * 30% Edge cases (boundary conditions, empty fields, special characters)
+    - Each test case should have: Test Case ID, Title, Preconditions, Steps, Expected Result, and Notes.
+    - Use Gherkin-style format for clarity.
+    - Do NOT include TypeScript code or automation scripts.
+    - Use realistic South India data (names, addresses, phone numbers).
+    - Reference elements from the provided DOM by their ID, class, or xpath.
+
+    Context:
+    DOM:
+    \`\`\`html
+    \${domContent}
+    \`\`\`
+    URL: \${pageUrl}
+
+    Example Output Format:
+    \`\`\`
+    TEST CASE 01 - Add Item to Cart [POSITIVE]
+    Title: User can successfully add item to shopping cart
+    Preconditions: E-commerce application is open, product page is displayed
+    Steps:
+      1. Navigate to any product page
+      2. Select quantity "2" from the quantity dropdown
+      3. Select size "M" from available options
+      4. Click "Add to Cart" button
+    Expected Result: Product is added to cart, cart count increases, success message is shown
+    Notes: Standard positive flow for e-commerce
+
+    TEST CASE 02 - Add Item Without Selecting Size [NEGATIVE]
+    Title: System prevents adding item when required attributes are missing
+    Preconditions: E-commerce application is open, product page is displayed
+    Steps:
+      1. Navigate to product page (size is mandatory)
+      2. Select quantity "1"
+      3. Skip size selection
+      4. Click "Add to Cart" button
+    Expected Result: Error message "Please select a size" is displayed, item is not added to cart
+    Notes: Mandatory field validation
+
+    TEST CASE 03 - Add Item with Quantity Zero [EDGE CASE]
+    Title: System prevents adding zero quantity items
+    Preconditions: E-commerce application is open, product page is displayed
+    Steps:
+      1. Navigate to product page
+      2. Set quantity to "0" manually
+      3. Select size "L"
+      4. Click "Add to Cart" button
+    Expected Result: Error message displayed or quantity auto-reverts to minimum (1)
+    Notes: Boundary condition for quantity
+
+    TEST CASE 04 - Add Item with Negative Quantity [EDGE CASE]
+    Title: System handles negative quantity input
+    Preconditions: E-commerce application is open, product page is displayed
+    Steps:
+      1. Navigate to product page
+      2. Attempt to enter "-5" in quantity field
+      3. Select size "S"
+      4. Click "Add to Cart" button
+    Expected Result: Quantity field rejects negative values or auto-corrects to positive
+    Notes: Input validation for numeric fields
+
+    TEST CASE 05 - Add Out of Stock Item [NEGATIVE]
+    Title: System prevents adding out-of-stock items
+    Preconditions: Product is marked as "Out of Stock" on the page
+    Steps:
+      1. Navigate to out-of-stock product page
+      2. Verify "Add to Cart" button is disabled or shows "Out of Stock" label
+      3. Attempt to click the button
+    Expected Result: Button is disabled/unavailable, informative message is shown
+    Notes: Inventory management test
+    \`\`\`
+
+    Persona:
+    - Audience: QA testers who need manual test cases for testing.
+
+    Output Format:
+    - Plain text format inside a \`\`\`\`\`\` block with clear test case structure.
+    - Each test case should be separated by a blank line.
+
+    Tone:
+    - Clear, structured, actionable.
+    - Focus on test coverage and edge cases.
   `
 };
 
@@ -479,4 +725,7 @@ export const CODE_GENERATOR_TYPES = {
   CUCUMBER_WITH_SELENIUM_JAVA_STEPS: 'Cucumber-With-Selenium-Java-Steps',
   CUCUMBER_WITH_SELENIUM_PYTHON_STEPS: 'Cucumber-With-Selenium-Python-Steps',
   CUCUMBER_WITH_PLAYWRIGHT_TS_STEPS: 'Cucumber-With-Playwright-TypeScript-Steps',
+  SELENIUM_JAVA_TEST_SCRIPTS: 'Selenium-Java-Test-Scripts',
+  SELENIUM_PYTHON_TEST_SCRIPTS: 'Selenium-Python-Test-Scripts',
+  PLAYWRIGHT_TS_TEST_SCRIPTS: 'Playwright-TypeScript-Test-Scripts',
 };
