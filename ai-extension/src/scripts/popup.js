@@ -116,6 +116,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         { value: 'gpt-4o', label: 'GPT-4o' },
         { value: 'gpt-4o-mini', label: 'GPT-4o Mini' },
 
+      ],
+         testleaf: [
+        { value: 'ft:gpt-4o-mini-2024-07-18:testleaf-2::DhArcAyw', label: 'TestLeaf 2.0 Fine-tuned' },
+        { value: 'ft:gpt-4o-mini-2024-07-18:testleaf-2::DiZlHRx7', label: 'TestLeaf 1.0' }
       ] 
     };
     
